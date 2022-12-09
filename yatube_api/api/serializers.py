@@ -49,7 +49,7 @@ class FollowSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 'Вы не можете быть подписаны на самого себя.'
             )
-        if len(is_unique) != 0:
+        if is_unique.exists():
             raise serializers.ValidationError(
                 'Вы уже подписаны на этого автора.'
             )
